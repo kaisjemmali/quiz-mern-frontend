@@ -7,7 +7,7 @@ export const fetchQuizResults = createAsyncThunk(
   async (userId) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/quiz-results/user/${userId}`
+        `https://quizy-mern-app-api.onrender.com/api/quiz-results/user/${userId}`
       );
       return data;
     } catch (error) {
@@ -22,7 +22,7 @@ export const createQuizResult = createAsyncThunk(
   async (payload) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/quiz-results/user/save",
+        "https://quizy-mern-app-api.onrender.com/api/quiz-results/user/save",
         payload
       );
       return data;

@@ -7,7 +7,7 @@ export const fetchCategories = createAsyncThunk(
   async (payload) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/categories/",
+        "https://quizy-mern-app-api.onrender.com/api/categories/",
         payload
       );
       return data;
@@ -24,7 +24,7 @@ export const createCategory = createAsyncThunk(
   async (payload) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/categories/",
+        "https://quizy-mern-app-api.onrender.com/api/categories/",
         payload
       );
       return data;
@@ -41,7 +41,7 @@ export const deleteCategory = createAsyncThunk(
   async (payload) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/categories/${payload}`
+        `https://quizy-mern-app-api.onrender.com/api/categories/${payload}`
       );
       return data;
     } catch (error) {
@@ -57,7 +57,7 @@ export const updateCategory = createAsyncThunk(
   async ({ id, name, description, photoUrl }, { rejectWithValue }) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/categories/${id}`,
+        `https://quizy-mern-app-api.onrender.com/api/categories/${id}`,
         { name, description, photoUrl }
       );
       return data;

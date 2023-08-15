@@ -7,7 +7,7 @@ export const fetchQuizQuestions = createAsyncThunk(
   async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/quiz-questions"
+        "https://quizy-mern-app-api.onrender.com/api/quiz-questions"
       );
       return data;
     } catch (error) {
@@ -22,7 +22,7 @@ export const createQuizQuestion = createAsyncThunk(
   async (payload) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/quiz-questions",
+        "https://quizy-mern-app-api.onrender.com/api/quiz-questions",
         payload
       );
       return data;
@@ -38,7 +38,7 @@ export const deleteQuizQuestion = createAsyncThunk(
   async (payload) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/quiz-questions/${payload}`
+        `https://quizy-mern-app-api.onrender.com/api/quiz-questions/${payload}`
       );
       // window.location.reload();
       return data;
@@ -54,7 +54,7 @@ export const updateQuizQuestion = createAsyncThunk(
   async ({ id, question, options, category }, { rejectWithValue }) => {
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/quiz-questions/${id}`,
+        `https://quizy-mern-app-api.onrender.com/api/quiz-questions/${id}`,
         { question, options, category }
       );
       return data;
@@ -70,7 +70,7 @@ export const fetchCategoryQuestions = createAsyncThunk(
   async (id) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/quiz-questions/category/${id}`
+        `https://quizy-mern-app-api.onrender.com/api/quiz-questions/category/${id}`
       );
       return data;
     } catch (error) {

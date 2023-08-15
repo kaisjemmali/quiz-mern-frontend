@@ -11,7 +11,10 @@ export const login = createAsyncThunk(
     axios.defaults.withCredentials = true;
     try {
       const { data } = await axios
-        .post("http://localhost:5000/api/users/auth", formValue)
+        .post(
+          "https://quizy-mern-app-api.onrender.com/api/users/auth",
+          formValue
+        )
         .then((res) => {
           toast.success("Logged In Successfully");
           dispatch(setCredentials(res.data));
@@ -36,7 +39,7 @@ export const register = createAsyncThunk(
     console.log(formValue);
     try {
       const { data } = await axios
-        .post("http://localhost:5000/api/users", formValue)
+        .post("https://quizy-mern-app-api.onrender.com/api/users", formValue)
         .then(() => {
           navigate("/login");
         })
@@ -60,7 +63,10 @@ export const updateProfile = createAsyncThunk(
     axios.defaults.withCredentials = true;
     try {
       const { data } = await axios
-        .put("http://localhost:5000/api/users/profile", formValue)
+        .put(
+          "https://quizy-mern-app-api.onrender.com/api/users/profile",
+          formValue
+        )
         .then(() => {
           dispatch(Logout());
         });
@@ -79,7 +85,7 @@ export const fetchUsers = createAsyncThunk(
   async (payload) => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/users/profiles",
+        "https://quizy-mern-app-api.onrender.com/api/users/profiles",
         payload
       );
       return data;
@@ -96,7 +102,7 @@ export const deleteUser = createAsyncThunk(
   async (payload) => {
     try {
       const { data } = await axios.delete(
-        `http://localhost:5000/api/users/profile/${payload}`
+        `https://quizy-mern-app-api.onrender.com/api/users/profile/${payload}`
       );
       return data;
     } catch (error) {
@@ -112,7 +118,7 @@ export const banUser = createAsyncThunk(
   async (userId, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/users/ban/${userId}`
+        `https://quizy-mern-app-api.onrender.com/api/users/ban/${userId}`
       );
       return response.data;
     } catch (error) {
@@ -128,7 +134,7 @@ export const unbanUser = createAsyncThunk(
   async (userId, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/users/unban/${userId}`
+        `https://quizy-mern-app-api.onrender.com/api/users/unban/${userId}`
       );
       return response.data;
     } catch (error) {
